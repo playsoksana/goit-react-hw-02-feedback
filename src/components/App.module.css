@@ -1,0 +1,5 @@
+.Message {
+    color: #fff;
+    font-size: 35px;
+    text-shadow: rgb(199, 25, 25) 1px 0 10px, rgb(199, 25, 25) -1px 0 10px, rgb(199, 25, 25) -1px 0 1px;
+}

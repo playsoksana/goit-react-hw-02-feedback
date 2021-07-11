@@ -1,0 +1,31 @@
+@value second-color from '../../styles/vars.module.css';
+
+
+.List {
+    display: flex;
+
+}
+
+
+.Item {
+margin-right: 15px;
+min-width: 150px;
+padding: 5px 15px;
+border-radius: 4px;
+border: 2px solid second-color;
+outline: none;
+color: second-color;
+font-size: 20px;
+font-weight: 500;
+background-color: transparent;
+cursor: pointer;
+transition: all 350ms ease-out;
+}
+
+.Item:hover {
+    background-color: second-color;
+    color: #fff;
+    font-weight: 700;
+}
+    
+

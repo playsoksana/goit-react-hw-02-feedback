@@ -18,28 +18,36 @@ import styles from './App.module.css';
             [value]: currentValue[value] + 1,
     }));
      };
+
+     total = () => {
+         const {good, neutral, bad} = this.state;
+         return good + neutral + bad
+     };
+
+     positivePercent = () =>
+      (this.state.good / this.total() * 100).toFixed(0);
+     
      
      render() {
-        const {increment} = this;
+        const {increment, total, positivePercent} = this;
         const {good, neutral, bad} = this.state;
-        const total = good + neutral + bad;
-        const positivePercent = (good / total * 100).toFixed(0);
-        
+               
             return (
                 <div>
             <h1>Task #1 , HomeWork 2</h1>
             <Section title="Please leave feedback">                
-                <FeedbackOptions onLeaveFeedback={increment}/>
+                <FeedbackOptions options={['good', 'neutral', 'bad']} onLeaveFeedback={increment}/>
             </Section>
             <Section title="Statistics">
 
-            {total < 1 
+            {total() < 1 
             ? <p className={styles.Message}>No feedback given</p> 
             :  <Statistics 
                 good={good}
                 neutral={neutral}
-                bad={bad} total={total}
-                positivePercent={positivePercent} />}   
+                bad={bad}
+                total={total()}
+                positivePercent={positivePercent()} />}   
             </Section>  
         </div> );
     }

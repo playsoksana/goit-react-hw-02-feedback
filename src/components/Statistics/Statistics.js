@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import style from './Statistics.module.css';
 
 
 
-class Statistics extends Component {
-    state = {  }
-    render() { 
-        const {title, good, neutral, bad, total, positivePercent } = this.props;
+const Statistics = ({title, good, neutral, bad, total, positivePercent}) => {  
+
         return (
             <>
              <h2>{ title}</h2> 
@@ -30,7 +28,7 @@ class Statistics extends Component {
             </ul>
              </>
          );
-    }
+    
 }
 
 Statistics.propTypes = {

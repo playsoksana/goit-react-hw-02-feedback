@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import styles from './FeedbackOptions.module.css';
 
 class FeedbackOptions extends Component {
-    static preventDefault = {
-
-    }
     state = {}
 
     addFeedback = (ev) => {
@@ -16,10 +13,10 @@ class FeedbackOptions extends Component {
     render() { 
         const {addFeedback} = this;
         return (
-             <ul className={styles.List}>
-                <li><button  className={styles.Item} onClick={addFeedback} type="button">Good</button></li>
-                <li><button  className={styles.Item} onClick={addFeedback}  type="button">Neutral</button></li>
-                <li><button  className={styles.Item} onClick={addFeedback}  type="button">Bad</button></li>                
+          <ul>    
+            {this.props.options.map((el, index)=>
+                <li key={index}><button  className={styles.Item} onClick={addFeedback} type="button">{el}</button></li>
+            )}
             </ul>
           );
     }

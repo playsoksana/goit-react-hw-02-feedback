@@ -7,15 +7,23 @@ import styles from './App.module.css';
 
 
  class App extends Component {
-     state = {
+     static defaultProps = {
         good: 0,
         neutral: 0,
         bad: 0
      }
 
-     increment = (value) => {         
+
+     state = {
+        good: this.props.good,
+        neutral: this.props.neutral,
+        bad: this.props.bad
+     }
+
+     increment = (ev) => {        
+        const valueTarget = ev.target.textContent.toLowerCase();
         this.setState(currentValue => ({
-            [value]: currentValue[value] + 1,
+            [valueTarget]: currentValue[valueTarget] + 1,
     }));
      };
 
@@ -47,7 +55,9 @@ import styles from './App.module.css';
                 neutral={neutral}
                 bad={bad}
                 total={total()}
-                positivePercent={positivePercent()} />}   
+                positivePercent={positivePercent()} 
+
+                />}   
             </Section>  
         </div> );
     }
